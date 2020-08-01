@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ $1 == '-u' ]; then
+	i3-msg border normal
+	i3-msg sticky disable
+	i3-msg floating disable
+	exit 0
+fi
+
+# Find the screen size
+screen_size=`xrandr | grep '*+' | sed -n 1p | awk '{print $1}' | tr x ' '`
+screen_num=`xrandr | grep '*+' | wc -l`
+screen_x=`echo $screen_size | awk '{print $1}'`
+screen_y=`echo $screen_size | awk '{print $2}'`
+
+# Size I want the window to be
+window_x=500
+window_y=300
+#window_y=274
+
+i3-msg border none
+i3-msg fullscreen disable
+i3-msg floating enable
+i3-msg sticky enable
+i3-msg resize set $window_x $window_y
+
+# Find the position to place the window
+((pos_x=$screen_num*$screen_x - $window_x))
+((pos_y=$screen_y - $window_y - 25))
+
+# Move the window
+i3-msg move absolute position $pos_x $pos_y
