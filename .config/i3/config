@@ -8,11 +8,11 @@ set $mod Mod4
 # Theming
 # ==============================================================================
 # =================================== Colors ===================================
-set $bg-color             #2f343f
+set $bg-color             #32302f
 set $bg-color-transparent argb:ef2f343f
-set $inactive-bg-color    #2f343f
-set $text-color           #f3f4f5
-set $inactive-text-color  #676E7D
+set $inactive-bg-color    #32302f
+set $text-color           #ebdbb2
+set $inactive-text-color  #929378
 set $urgent-bg-color      #E53935
 
 # =================================== Windows ==================================
@@ -462,7 +462,7 @@ bar {
 		focused_workspace  $bg-color          $bg-color          $text-color
 
 		# Another monitor
-		active_workspace   $inactive-bg-color $inactive-bg-color #9DA1d2
+		active_workspace   $inactive-bg-color $inactive-bg-color $text-color
 
 		# Any monitor
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
