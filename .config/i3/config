@@ -13,7 +13,7 @@ set $bg-color-transparent argb:ef2f343f
 set $inactive-bg-color    #32302f
 set $text-color           #ebdbb2
 set $inactive-text-color  #929378
-set $urgent-bg-color      #E53935
+set $urgent-bg-color      #cc241d
 
 # =================================== Windows ==================================
 font pango:monospace 8
@@ -37,7 +37,7 @@ mouse_warping none
 # Launch Programs
 # ------------------------------------------------------------------------------
 # rofi
-bindsym $mod+d exec "rofi -show run -fullscreen  -padding 400 -font 'Lucida Gr 18' -color-window '$bg-color-transparent,$bg-color-transparent' -color-normal '$bg-color-transparent,$text-color,$bg-color-transparent,$bg-color-transparent,#9575cd'"
+bindsym $mod+d exec "rofi -show run"
 
 # Send Commands to i3
 bindsym $mod+i exec "i3-input"
