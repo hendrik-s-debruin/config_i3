@@ -432,7 +432,7 @@ mode "$mode_brightness" {
 # ------------------------------------------------------------------------------
 # Multi Monitor Layout
 # ------------------------------------------------------------------------------
-set $mode_screen_layout Screen Layout: [M]irror [L]eft [R]ight [S]ingle
+set $mode_screen_layout Screen Layout: [M]irror [L]eft [R]ight [S]ingle [O]ther
 bindsym $mod+shift+s mode "$mode_screen_layout"
 mode "$mode_screen_layout"
 {
@@ -440,6 +440,7 @@ mode "$mode_screen_layout"
 	bindsym l exec "dualscreen_left" mode default
 	bindsym r exec "dualscreen_right" mode default
 	bindsym s exec "singlescreen" mode default
+	bindsym o exec "otherscreen" mode default
 
 	# back to normal
 	bindsym Escape mode "default"
