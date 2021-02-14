@@ -200,6 +200,7 @@ assign [class="Chromium" instance="web.skype.com"]        $workspace4
 assign [class="Skype"]                                    $workspace4
 assign [class="telegram-desktop"]                         $workspace4
 assign [class="TelegramDesktop"]                          $workspace4
+assign [class="Signal"]                                   $workspace4
 
 # ----------------------------------- Office -----------------------------------
 assign [instance="libreoffice-calc"]                      $workspace5
@@ -482,6 +483,7 @@ exec --no-startup-id fcitx
 
 # chats
 exec telegram-desktop
+exec signal-desktop
 
 # display
 exec --no-startup-id wallpaper.sh
