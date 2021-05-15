@@ -68,7 +68,7 @@ bindsym $mod+shift+m exec "killall unclutter"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # lock screen
-bindsym $mod+Shift+x exec "i3lock-fancy-multimonitor --blur=5x3 --no-text"
+bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy-multimonitor --blur=5x3 --no-text"
 
 # ------------------------------------------------------------------------------
 # Widonw Management
