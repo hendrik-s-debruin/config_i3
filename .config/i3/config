@@ -37,7 +37,8 @@ mouse_warping none
 # Launch Programs
 # ------------------------------------------------------------------------------
 # rofi
-bindsym $mod+d exec "rofi -show run"
+# bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
 bindsym $mod+t exec "rofi -show window"
 
 # Send Commands to i3
@@ -49,10 +50,10 @@ bindsym $mod+shift+y exec "corner_screen -u"
 
 # start a file manager
 bindsym $mod+ctrl+f exec "thunar"
-bindsym $mod+shift+f exec "i3-sensible-terminal -e rangerc zsh"
+bindsym $mod+shift+f exec "alacritty -e ranger"
 
 # Open vim
-bindsym $mod+shift+c exec "i3-sensible-terminal -e vim"
+bindsym $mod+shift+c exec "alacritty -e vim"
 
 # change background
 bindsym $mod+Shift+w exec --no-startup-id feh --no-fehbg --randomize --bg-scale ~/Documents/Wallpapers/*
@@ -65,10 +66,10 @@ bindsym $mod+m exec "unclutter -grab -idle 1 -root &"
 bindsym $mod+shift+m exec "killall unclutter"
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # lock screen
-bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy-multimonitor --blur=5x3 --no-text"
+bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy"
 
 # ------------------------------------------------------------------------------
 # Widonw Management
@@ -480,7 +481,7 @@ bar {
 # Auto Start Applications
 # ==============================================================================
 # Compositor used for fading windows
-exec_always --no-startup-id compton --fading --fade-delta=30
+exec_always --no-startup-id compton --fading --fade-delta=5
 
 # Multi-language
 exec --no-startup-id fcitx
