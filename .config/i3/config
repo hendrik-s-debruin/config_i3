@@ -1,13 +1,10 @@
-# ==============================================================================
-# Modkey
-# ==============================================================================
+# {{{ ============================== Modkey ===================================
 # ALT key is Mod1, Winkey is Mod4, BUT in ~/.Xmodmap, these have been swapped
 set $mod Mod4
 
-# ==============================================================================
-# Theming
-# ==============================================================================
-# =================================== Colors ===================================
+# }}}
+# {{{ =============================== Theming ==================================
+# {{{ ------------------------------- Colors -----------------------------------
 set $bg-color             #32302f
 set $bg-color-transparent argb:ef2f343f
 set $inactive-bg-color    #32302f
@@ -15,7 +12,8 @@ set $text-color           #ebdbb2
 set $inactive-text-color  #929378
 set $urgent-bg-color      #cc241d
 
-# =================================== Windows ==================================
+# }}}
+# {{{ ------------------------------- Windows ----------------------------------
 font pango:monospace 8
 #class                  border             background         text                 indicator child_border
 client.focused          $bg-color          $bg-color          $text-color
@@ -23,19 +21,16 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color
 
-# ==============================================================================
-# Behaviour
-# ==============================================================================
+# }}}
+# }}}
+# {{{ ============================== Behaviour =================================
 floating_modifier $mod
 # don't move mouse when switching screens
 mouse_warping none
 
-# ==============================================================================
-# Bindings
-# ==============================================================================
-# ------------------------------------------------------------------------------
-# Launch Programs
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ============================== Bindings ==================================
+# {{{ --------------------------- Launch Programs ------------------------------
 # rofi
 # bindsym $mod+d exec "rofi -show run"
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
@@ -71,9 +66,8 @@ bindsym $mod+Return exec alacritty
 # lock screen
 bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy"
 
-# ------------------------------------------------------------------------------
-# Widonw Management
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ -------------------------- Window Management -----------------------------
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -135,9 +129,8 @@ bindsym $mod+shift+a focus child
 set $resize_amount 1 px or 1 ppt
 set $resize_amount_large 10 px or 10 ppt
 
-# ------------------------------------------------------------------------------
-# Multi Screen
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ---------------------------- Multi Screen --------------------------------
 # move workspace to different screen
 bindsym $mod+ctrl+l move workspace to output right
 bindsym $mod+ctrl+h move workspace to output left
@@ -146,38 +139,38 @@ bindsym $mod+ctrl+h move workspace to output left
 bindsym $mod+ctrl+Right move workspace to output right
 bindsym $mod+ctrl+Left  move workspace to output left
 
-# ------------------------------------------------------------------------------
-# Media Keys
-# ------------------------------------------------------------------------------
-# =================================== volume ===================================
+# }}}
+# {{{ ----------------------------- Media Keys ---------------------------------
+# volume
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioMute        exec amixer set Master toggle
 
-# ================================= cmus Remote ================================
+# cmus Remote
 bindsym XF86AudioPlay       exec cmus-remote --pause
 bindsym XF86AudioNext       exec cmus-remote --next
 bindsym XF86AudioPrev       exec cmus-remote --prev
 bindsym Shift+XF86AudioNext exec cmus-remote --seek +5
 bindsym Shift+XF86AudioPrev exec cmus-remote --seek -5
 
-# ------------------------------------------------------------------------------
-# Screen Brightness
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ -------------------------- Screen Brightness -----------------------------
 bindsym Shift+XF86AudioRaiseVolume exec backlight inc 20
 bindsym Shift+XF86AudioLowerVolume exec backlight dec 20
 bindsym Control+Shift+XF86AudioRaiseVolume exec backlight inc 5
 bindsym Control+Shift+XF86AudioLowerVolume exec backlight dec 5
 
-# ------------------------------------------------------------------------------
-# Workspaces
-# ------------------------------------------------------------------------------
-# ================================= Scratchpad =================================
+# }}}
+# {{{ ----------------------------- Workspaces ---------------------------------
+# Scratchpad
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
 workspace_auto_back_and_forth yes
 
-# ==================================== Names ===================================
+# }}}
+# }}}
+# {{{ ========================= Workspace Settings =============================
+# {{{ -------------------------------- Names -----------------------------------
 set $workspace1 "1: Main "
 set $workspace2 "2: Code "
 set $workspace3 "3: Web "
@@ -189,14 +182,15 @@ set $workspace8 "8: ROS "
 set $workspace9 "9: Games "
 set $workspace10 "10: Media "
 
-# ============================= Default Workspaces =============================
-# ------------------------------------ Web -------------------------------------
+# }}}
+# {{{ ------------------------- Default Workspaces -----------------------------
+# Web
 assign [class="Firefox"]                                  $workspace3
 assign [class="Chromium" instance="chromium"]             $workspace3
 assign [class="google-Chrome"]                            $workspace3
 assign [class="qutebrowser" instance="qutebrowser"]       $workspace3
 
-# ----------------------------------- Chats ------------------------------------
+# Chats
 assign [class="Chromium" instance="web.whatsapp.com"]     $workspace4
 assign [class="Chromium" instance="web.skype.com"]        $workspace4
 assign [class="Chromium" instance="teams.microsoft.com"]  $workspace4
@@ -206,20 +200,20 @@ assign [class="telegram-desktop"]                         $workspace4
 assign [class="TelegramDesktop"]                          $workspace4
 assign [class="Signal"]                                   $workspace4
 
-# ----------------------------------- Office -----------------------------------
+# Office
 assign [instance="libreoffice-calc"]                      $workspace5
 
-# ---------------------------------- Download ----------------------------------
+# Download
 assign [class="Transmission-gtk"]                         $workspace6
 
-# ------------------------------------ Ros -------------------------------------
+# Ros
 assign [instance="gazeb"]                                 $workspace8
 
-# ----------------------------------- Games ------------------------------------
+# Games
 # xonotic
 assign [class="DarkPlaces"]                               $workspace9
 
-# ----------------------------------- Media ------------------------------------
+# Media
 # draw.io chrome extension
 assign [instance="crx_pebppomjfocnoigkeepgbmcifnnlndla"]       $workspace10
 # draw.io desktop app
@@ -234,8 +228,8 @@ assign [instance="Audacity"]                                   $workspace10
 assign [class="krita"]                                         $workspace10
 assign [class="lmms"]                                          $workspace10
 assign [class="Chromium" instance="www.disneyplus.com__en-it"] $workspace10
-
-# ========================== Moving Between Workspaces =========================
+# }}}
+# {{{ ---------------------- Moving Between Workspaces -------------------------
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -260,12 +254,11 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# ==============================================================================
-# Modes
-# ==============================================================================
-# ------------------------------------------------------------------------------
-# Resize Winodw
-# ------------------------------------------------------------------------------
+# }}}
+
+# }}}
+# {{{ ================================ Modes ===================================
+# {{{ ---------------------------- Resize Winodw -------------------------------
 mode "resize" {
 	bindsym j resize shrink width 10 px or 10 ppt
 	bindsym k resize grow height 10 px or 10 ppt
@@ -293,10 +286,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# ------------------------------------------------------------------------------
-# Change Keyboard Layout
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ----------------------- Change Keyboard Layout ---------------------------
 set $mode_keyboard_layout Keyboard: [L]atin [R]ussian [C]hinese [U]s [G]reek [K]orean
 bindsym $mod+q mode "$mode_keyboard_layout"
 
@@ -313,9 +304,8 @@ mode "$mode_keyboard_layout" {
 	bindsym Return mode "default"
 }
 
-# ------------------------------------------------------------------------------
-# Reboot, shutdown, Kill x
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ---------------------- Reboot, shutdown, Kill x --------------------------
 set $mode_shutdown [S]hutown, [R]eboot, [K]ill X
 bindsym $mod+Shift+e mode "$mode_shutdown"
 mode "$mode_shutdown"{
@@ -326,10 +316,8 @@ mode "$mode_shutdown"{
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-
-# ------------------------------------------------------------------------------
-# Take a screenshot
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ -------------------------- Take a screenshot -----------------------------
 set $mode_screenshot Screenshot: [A]ctive [S]ection [F]ull
 bindsym $mod+shift+p mode "$mode_screenshot"
 mode "$mode_screenshot" {
@@ -343,9 +331,8 @@ mode "$mode_screenshot" {
 	bindsym Return mode "default"
 }
 
-# ------------------------------------------------------------------------------
-# Record the destkop
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ------------------------- Record the destkop -----------------------------
 set $mode_record_desktop Record: [A]ctive [F]ull [P]ause [R]esume [C]ancel [S]top
 bindsym $mod+shift+d mode "$mode_record_desktop"
 mode "$mode_record_desktop"
@@ -365,10 +352,8 @@ mode "$mode_record_desktop"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# ------------------------------------------------------------------------------
-# Change volume
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ---------------------------- Change volume -------------------------------
 set $mode_sound Volume: [M]ute [L]ouder [S]ofter [0..9]0%
 bindsym $mod+shift+v mode "$mode_sound"
 mode "$mode_sound" {
@@ -401,10 +386,8 @@ mode "$mode_sound" {
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# ------------------------------------------------------------------------------
-# Backlight
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ------------------------------ Backlight ---------------------------------
 set $mode_brightness Brightness: [D]arker [L]ighter [0..9]0%
 bindsym $mod+shift+b mode "$mode_brightness"
 mode "$mode_brightness" {
@@ -434,10 +417,8 @@ mode "$mode_brightness" {
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# ------------------------------------------------------------------------------
-# Multi Monitor Layout
-# ------------------------------------------------------------------------------
+# }}}
+# {{{ ------------------------ Multi Monitor Layout ----------------------------
 set $mode_screen_layout Screen Layout: [M]irror [L]eft [R]ight [S]ingle [O]ther
 bindsym $mod+shift+s mode "$mode_screen_layout"
 mode "$mode_screen_layout"
@@ -452,10 +433,9 @@ mode "$mode_screen_layout"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# ==============================================================================
-# i3bar
-# ==============================================================================
+# }}}
+# }}}
+# {{{ ================================ i3bar ===================================
 bar {
 	status_command i3blocks
 	font pango: Lucida Gr bold 10
@@ -476,10 +456,8 @@ bar {
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
-
-# ==============================================================================
-# Auto Start Applications
-# ==============================================================================
+# }}}
+# {{{ ======================= Auto Start Applications ==========================
 # Compositor used for fading windows
 exec_always --no-startup-id compton --fading --fade-delta=5
 
@@ -507,4 +485,4 @@ exec dunst
 # this was generated with arandr
 exec xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 exec dualscreen_right
-
+# }}}
