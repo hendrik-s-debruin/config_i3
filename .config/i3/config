@@ -16,10 +16,10 @@ set $urgent-bg-color      #cc241d
 # {{{ ------------------------------- Windows ----------------------------------
 font pango:monospace 8
 #class                  border             background         text                 indicator child_border
-client.focused          $bg-color          $bg-color          $text-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color
+client.focused          $bg-color          $bg-color          $text-color          $text-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $text-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $text-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $text-color
 
 # }}}
 # }}}
@@ -185,10 +185,10 @@ set $workspace10 "10: Media "
 # }}}
 # {{{ ------------------------- Default Workspaces -----------------------------
 # Web
-assign [class="Firefox"]                                  $workspace3
-assign [class="Chromium" instance="chromium"]             $workspace3
-assign [class="google-Chrome"]                            $workspace3
-assign [class="qutebrowser" instance="qutebrowser"]       $workspace3
+# assign [class="Firefox"]                                  $workspace3
+# assign [class="Chromium" instance="chromium"]             $workspace3
+# assign [class="google-Chrome"]                            $workspace3
+# assign [class="qutebrowser" instance="qutebrowser"]       $workspace3
 
 # Chats
 assign [class="Chromium" instance="web.whatsapp.com"]     $workspace4
@@ -255,7 +255,6 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # }}}
-
 # }}}
 # {{{ ================================ Modes ===================================
 # {{{ ---------------------------- Resize Winodw -------------------------------
