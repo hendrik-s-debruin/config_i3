@@ -64,7 +64,7 @@ bindsym $mod+shift+m exec "killall unclutter"
 bindsym $mod+Return exec alacritty
 
 # lock screen
-bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy"
+bindsym $mod+Shift+x exec "killall unclutter; ~/bin/secure; i3lock-fancy-dualmonitor"
 
 # }}}
 # {{{ -------------------------- Window Management -----------------------------
@@ -199,6 +199,7 @@ assign [class="Skype"]                                    $workspace4
 assign [class="telegram-desktop"]                         $workspace4
 assign [class="TelegramDesktop"]                          $workspace4
 assign [class="Signal"]                                   $workspace4
+assign [class="Slack"]                                    $workspace4
 
 # Office
 assign [instance="libreoffice-calc"]                      $workspace5
@@ -458,7 +459,7 @@ bar {
 # }}}
 # {{{ ======================= Auto Start Applications ==========================
 # Compositor used for fading windows
-exec_always --no-startup-id picom --fading --fade-delta=20
+exec_always --no-startup-id picom --fading --fade-delta=5 --inactive-opacity=1.0 --inactive-dim=0.05
 
 # Multi-language
 exec --no-startup-id fcitx
@@ -466,9 +467,10 @@ exec --no-startup-id fcitx
 # chats
 exec telegram-desktop
 exec signal-desktop
+exec slack
 
 # display
-exec --no-startup-id wallpaper.sh
+exec --no-startup-id ~/bin/wallpaper.sh
 exec --no-startup-id redshift -t 5500:2500 -l 50:14
 
 # automount media
@@ -479,6 +481,13 @@ exec unclutter -grab -idle 1 -root &
 
 # notifications server
 exec dunst
+
+# monitoring
+exec_always conky
+
+# music
+exec spotblock
+exec spotify
 
 # manage multi windows
 # this was generated with arandr
